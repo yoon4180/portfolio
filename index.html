@@ -1,13 +1,182 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Yoon's Porfolio</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/main.css">
+    <!-- GSAP -->
+    <script src="lib/gsap.min.js"></script>
+
+    <script>
+        window.onload = () => {
+            class NavigationEffect {
+                constructor(navigation) {
+                    this.navigation = navigation;
+                    this.anchors = this.navigation.querySelectorAll("a");
+                    this.initialD = "M 10,90 Q 100,90 190,90";
+                    this.hoverD = "M 10,90 Q 100,125 190,90";
+                    this.activeD = "M 10,90 Q 100,32 190,90";
+                    this.ease = "elastic.out(1.4, 0.3)";
+
+                    this.anchors.forEach((anchor) => {
+                        anchor.addEventListener("pointerenter", (e) => {
+                            this.animateTo(this.hoverD, anchor);
+                        });
+
+                        anchor.addEventListener("pointerleave", () => {
+                            this.animateTo(this.initialD, anchor);
+                        });
+
+                        anchor.addEventListener("click", (e) => {
+                            this.handlePrevious();
+                            this.handleCurrent(anchor);
+                            e.preventDefault();
+                        });
+                    });
+                }
+
+                animateTo(d, anchor, duration = 1) {
+                    if (anchor.classList.contains("active")) return;
+                    const path = anchor.querySelector("path");
+                    gsap.killTweensOf(path);
+                    gsap.to(path, {
+                        attr: { d },
+                        ease: this.ease,
+                        duration
+                    });
+                }
+
+                handleCurrent(anchor) {
+                    this.animateTo(this.activeD, anchor);
+                    anchor.classList.toggle("active");
+                }
+
+                handlePrevious() {
+                    const previous = document.querySelector(".active");
+                    if (previous) {
+                        previous.classList.toggle("active");
+                        this.animateTo(this.initialD, previous);
+                    }
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", () => {
+                new NavigationEffect(document.querySelector("nav"));
+            });
+        }
+    </script>
 </head>
+
 <body>
-    
+    <div id="wrap">
+        <nav>
+            <a href="#">
+                <svg viewBox="0 0 200 140" width="200px" height="140px">
+                    <path id="home-path" d="M 10,90 Q 100,90 190,90" />
+                    <text class="path-text">
+                        <textPath href="#home-path" startOffset="50%" text-anchor="middle">
+                            <tspan dy="-12">Home</tspan>
+                        </textPath>
+                    </text>
+                </svg>
+            </a>
+            <a href="#">
+                <svg viewBox="0 0 200 140" width="200px" height="140px">
+                    <path id="work-path" d="M 10,90 Q 100,90 190,90" />
+                    <text class="path-text">
+                        <textPath href="#work-path" startOffset="50%" text-anchor="middle">
+                            <tspan dy="-12">My work</tspan>
+                        </textPath>
+                    </text>
+                </svg>
+            </a>
+            <a href="#">
+                <svg viewBox="0 0 200 140" width="200px" height="140px">
+                    <path id="notes-path" d="M 10,90 Q 100,90 190,90" />
+                    <text class="path-text">
+                        <textPath href="#notes-path" startOffset="50%" text-anchor="middle">
+                            <tspan dy="-12">Notes</tspan>
+                        </textPath>
+                    </text>
+                </svg>
+            </a>
+            <a href="#">
+                <svg viewBox="0 0 200 140" width="200px" height="140px">
+                    <path id="about-path" d="M 10,90 Q 100,90 190,90" />
+                    <text class="path-text">
+                        <textPath href="#about-path" startOffset="50%" text-anchor="middle">
+                            <tspan dy="-12">About me</tspan>
+                        </textPath>
+                    </text>
+                </svg>
+            </a>
+        </nav>
+
+        <main class="main">
+            <div class="main_visual">
+                <div class="inner">
+                    <div class="envelopeHolder">
+                        <div class="insideLetterHolder">
+                            <div class="insideLetterScroll">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis elit magna. Proin aliquam
+                                egestas mollis. Vivamus tempus, erat eget aliquet blandit, erat sem tempus arcu, volutpat finibus
+                                est magna in justo. Donec mollis arcu ac cursus gravida. Aliquam ac tempor augue. Praesent vitae
+                                tristique tortor. Aliquam pharetra nunc rutrum odio condimentum tempor. Ut nulla orci, vestibulum ac
+                                odio id, vehicula ultricies nisi. Proin commodo tortor eget tempus tristique. Duis vitae aliquam
+                                leo.
+                                <br><br>
+                                Donec dapibus sodales sagittis. Nunc tincidunt volutpat nulla, sed congue sem. Integer orci felis,
+                                imperdiet in laoreet a, gravida at nisl. Orci varius natoque penatibus et magnis dis parturient
+                                montes, nascetur ridiculus mus. In ligula quam, sollicitudin dictum quam vitae, dignissim pharetra
+                                nulla. Aliquam accumsan rhoncus tortor, egestas venenatis dui dapibus nec. Duis dolor eros,
+                                condimentum eget cursus aliquet, ultricies eu eros. Nam at dolor at orci ultricies pellentesque.
+                                Pellentesque a arcu libero. Aenean vestibulum nisi vel ante consequat condimentum. Nulla tempor nunc
+                                id odio semper molestie. Proin et aliquet nibh, a lobortis magna. Nulla ultricies sit amet purus ac
+                                vulputate. Suspendisse in massa ac justo mollis sagittis eget eu nulla.
+                                <br><br>
+                                Fusce magna erat, malesuada a pretium et, hendrerit vulputate dui. Sed vitae feugiat magna. Aliquam
+                                mollis enim at purus porttitor iaculis. Suspendisse quam urna, placerat eu mauris a, suscipit
+                                rhoncus lectus. Sed ullamcorper eros ac fringilla venenatis. Duis at dolor varius, ultricies lectus
+                                a, molestie nisi. Vivamus sagittis ante nec sodales tristique. Vivamus id rhoncus est. Morbi purus
+                                leo, fermentum id lectus eget, mattis ullamcorper neque. Donec tristique dui id augue congue
+                                fermentum. Morbi mollis egestas mauris eu fringilla.
+                                <br><br>
+                                Cras aliquam tortor sed sapien tincidunt iaculis. Phasellus ac neque ut dolor tristique consectetur.
+                                Nulla a lacus tempor velit maximus consequat. Etiam mauris lectus, luctus aliquet urna a, bibendum
+                                faucibus diam. Nunc et auctor leo, quis consequat erat. Etiam ac blandit justo. Aenean quis rhoncus
+                                ante.
+                                <br><br>
+                                Curabitur dignissim sapien ut nisl auctor, non pretium massa aliquet. Morbi tincidunt nulla nec
+                                massa fermentum, scelerisque ullamcorper urna molestie. Vestibulum ut fermentum sem. Maecenas sed
+                                bibendum magna. Nullam non orci diam. Integer elit justo, faucibus quis diam porttitor, malesuada
+                                condimentum justo. Nulla quis lectus dapibus, commodo ante eu, blandit nisi.
+                            </div><!-- insideLetterScroll -->
+                        </div><!-- insideLetterHolder -->
+                        <div class="topLetterHolder"></div>
+                    </div><!-- envelopeHolder -->
+                    <div class="title">
+                        <p>P</p>
+                        <p>ortfolio</p>
+                    </div><!-- title -->
+                    <div class="deco1">
+                        <img src="img/deco1.png" alt="나비">
+                    </div><!-- deco1 -->
+                </div><!-- inner -->
+            </div><!-- main_visual -->
+
+            <section class="sec-01">
+                <div class="card">
+
+                </div><!-- card -->
+            </section><!-- sec-01 -->
+
+        </main><!-- main -->
+    </div><!-- #wrap -->
+
+
 </body>
+
 </html>

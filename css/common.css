@@ -16,11 +16,60 @@
     font-display: swap;
 }
 
-/* font-family: "Life Savers", serif;
-   font-weight: 400, 700, 800; */
-/* font-family: "Caladea", serif;
-   font-weight: 400, 700, 800; */
-/* font-family: "Great Vibes", cursive; */
-/* font-family: "Cormorant", serif; */
-/* font-family: "Homemade Apple", cursive; */
-/* font-family: 'GangwonEducationModuche'; */
+@font-face {
+    font-family: "writingSnippetFont";
+    src: url('https://assets.codepen.io/1633505/Novecentosanswide-Light.otf');
+}
+
+:root {
+    --font-kr: 'GangwonEducationModuche';
+    --font-cor: "Cormorant", serif;
+    --font-life: "Life Savers", serif;
+    --font-cal: "Caladea", serif;
+    --font-great: "Great Vibes", cursive;
+    --font-apple: "Homemade Apple", cursive;
+
+    --color-main: #2c2d66;
+    --color-subR: #A73F40;
+    --color-subG: #7c7719;
+    --color-bg: #F6F5F3;
+}
+
+html {
+    font-size: 62.5%;  /* 1rem = 10px */
+}
+
+
+body {
+    background-color: var(--color-bg);
+    color: var(--color-main);
+}
+
+/* ################ 헤더 ################ */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    position: fixed;
+    z-index: 999;
+}
+
+text {
+    fill: #0568f2;
+    font-family: "Life Savers", serif;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 28px;
+}
+
+path {
+    stroke: #ed5af2;
+    stroke-width: 4px;
+    fill: none;
+    stroke-linecap: round;
+}
+
+@media (max-width: 1100px) {
+    nav {
+        flex-direction: column;
+    }
+}

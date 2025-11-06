@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+/* ################ 메인 비주얼 ################ */
+.main_visual {
+    width: 100vw;
+    height: 100vh;
+    background: url('../img/background.png') center center no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.main_visual .inner {
+    width: 83.07%;
+    height: 80vh;
+    max-width: 1595px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    position: relative;
+}
+
+.main_visual .inner .title {
+    display: flex;
+    align-items: end;
+}
+
+.main_visual .inner .title p:first-child {
+    font-family: var(--font-great);
+    font-size: 25rem;
+}
+
+.main_visual .inner .title p:last-child {
+    font-family: var(--font-cor);
+    font-size: 18.7rem;
+    font-weight: 500;
+    margin-left: -5.7rem;
+}
+
+.main_visual .inner .deco1 {
+    width: 21.8px;
+    position: absolute;
+    bottom: 15rem;
+    right: -10rem;
+    transform: rotate(320deg);
+}
+
+.main_visual .inner .deco1 img {
+    width: 100%;
+    display: block;
+}
+
+/* ####### 메인 편지 ####### */
+.envelopeHolder {
+    text-align: justify;
+    width: 500px;
+    height: 671px;
+    overflow: hidden;
+    background-image: url('https://assets.codepen.io/1633505/specialLetter.png');
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+.insideLetterHolder {
+    position: absolute;
+    background-image: url('https://assets.codepen.io/1633505/insidePaper.png');
+    bottom: 190px;
+    width: 424px;
+    height: 212px;
+    left: 38px;
+    transition: all 0.9s;
+    overflow: hidden;
+}
+
+.topLetterHolder {
+    position: absolute;
+    bottom: 0;
+    width: 500px;
+    height: 364px;
+    background-image: url('https://assets.codepen.io/1633505/topLetterHolder.png');
+}
+
+.envelopeHolder:hover .insideLetterHolder {
+    height: 556px;
+    z-index: 9;
+    bottom: 10px;
+}
+
+.insideLetterScroll {
+    font-family: 'writingSnippetFont';
+    text-align: justify;
+    font-size: 10px;
+    margin: 31px 38px;
+    line-height: 21px;
+    height: 488px;
+    overflow: auto;
+}
+
+
+
+/* ################ 섹션1 ################ */
+.sec-01 {
+    background: ;
+}
+.sec-01 {}
+.sec-01 {}
