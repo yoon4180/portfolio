@@ -39,7 +39,6 @@ html {
     font-size: 62.5%;  /* 1rem = 10px */
 }
 
-
 body {
     min-width: 1600px;
     background-color: var(--color-bg);

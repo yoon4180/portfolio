@@ -353,30 +353,33 @@
     will-change: transform, opacity;
 }
 
-.spacer {
-    height: 100vh;
-}
-
 #section2 .inner {
     max-width: 1764px;
     width: calc(100% - 80px);
     margin: 0 auto;
 }
 
-#section2 .inner .title {
+#section2 .inner .category {
     display: flex;
     align-items: baseline;
     justify-content: flex-start;
     gap: 0;
     margin-top: 100px;
+    position: relative;
+    bottom: -35px;
 }
 
-#section2 .inner .title p:first-child {
+#section2 .inner .list .category {
+    margin-top: 0;
+    bottom: -60px;
+}
+
+#section2 .inner .category p:first-child {
     font-family: var(--font-great);
     font-size: 10rem;
 }
 
-#section2 .inner .title p:last-child {
+#section2 .inner .category p:last-child {
     font-family: var(--font-cor);
     font-size: 6rem;
     font-weight: 600;
@@ -390,39 +393,52 @@
 }
 
 #section2 .inner .list .item {
+    height: 80vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 4rem;
 }
 
+#section2 .inner .list .item.item.daonjae {
+    border-top: dashed 3px rgb(from var(--color-subG) r g b / 0.5);
+    border-bottom: dashed 3px rgb(from var(--color-subG) r g b / 0.5);
+}
+
 /* 목업 이미지 */
 #section2 .item .image_wrap {
     position: relative;
-    display: flex;
 }
 
 #section2 .item .image_wrap .mockup {
     background: url('../img/cine21_pc-mockup.png') center / 100% 100% no-repeat;
-    width: 714px;
-    height: 572px;
+    width: 650px;
+    height: 521px;
     position: relative;
+    top: -39px;
     overflow: hidden;
+}
+
+#section2 .item.daonjae .image_wrap .mockup {
+    background: url('../img/daonjae_pc-mockup.png') center / 100% 100% no-repeat;
+}
+
+#section2 .item.sealife .image_wrap .mockup {
+    background: url('../img/sealife_pc-mockup.png') center / 100% 100% no-repeat;
 }
 
 #section2 .item .image_wrap .mockup .mockup_img {
     display: none;
     width: 90%;
     position: absolute;
-    top: 35px;
-    left: 38px;
+    top: 31px;
+    left: 33px;
     overflow: hidden;
     z-index: 10;
 }
 
 #section2 .item .image_wrap .mockup:hover .mockup_img {
     display: block;
-    
 }
 
 #section2 .item .image_wrap .mockup2 {
@@ -431,6 +447,11 @@
     bottom: -40px;
     right: -270px;
     z-index: 100;
+}
+
+#section2 .item.daonjae .image_wrap .mockup2 {
+    width: 200px;
+    right: -120px;
 }
 
 #section2 .item .image_wrap img {

@@ -141,14 +141,4 @@ window.onload = () => {
         });
     });
 
-
-    // 📍📍📍섹션 1 gif 처음부터📍📍📍
-    const mockup = document.querySelector('.mockup');
-    const gif = mockup.querySelector('.mockup_img');
-
-    mockup.addEventListener('mouseenter', () => {
-        const src = gif.src;
-        gif.src = '';   // 일단 초기화
-        gif.src = src;  // 다시 넣으면 처음부터 재생
-    });
 };//script end
