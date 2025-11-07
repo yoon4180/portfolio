@@ -11,112 +11,10 @@
     <script src="lib/gsap.min.js"></script>
     <!-- jQuery -->
     <script src="lib/jquery-3.7.1.min.js"></script>
-
-    <script>
-        window.onload = () => {
-            // 📍📍📍내비게이션📍📍📍
-            class NavigationEffect {
-                constructor(navigation) {
-                    this.navigation = navigation;
-                    this.anchors = this.navigation.querySelectorAll("a");
-                    this.initialD = "M 10,90 Q 100,90 190,90";
-                    this.hoverD = "M 10,90 Q 100,125 190,90";
-                    this.activeD = "M 10,90 Q 100,32 190,90";
-                    this.ease = "elastic.out(1.4, 0.3)";
-
-                    this.anchors.forEach((anchor) => {
-                        anchor.addEventListener("pointerenter", (e) => {
-                            this.animateTo(this.hoverD, anchor);
-                        });
-
-                        anchor.addEventListener("pointerleave", () => {
-                            this.animateTo(this.initialD, anchor);
-                        });
-
-                        anchor.addEventListener("click", (e) => {
-                            this.handlePrevious();
-                            this.handleCurrent(anchor);
-                            e.preventDefault();
-                        });
-                    });
-                }
-
-                animateTo(d, anchor, duration = 1) {
-                    if (anchor.classList.contains("active")) return;
-                    const path = anchor.querySelector("path");
-                    gsap.killTweensOf(path);
-                    gsap.to(path, {
-                        attr: { d },
-                        ease: this.ease,
-                        duration
-                    });
-                }
-
-                handleCurrent(anchor) {
-                    this.animateTo(this.activeD, anchor);
-                    anchor.classList.toggle("active");
-                }
-
-                handlePrevious() {
-                    const previous = document.querySelector(".active");
-                    if (previous) {
-                        previous.classList.toggle("active");
-                        this.animateTo(this.initialD, previous);
-                    }
-                }
-            }
-            new NavigationEffect(document.querySelector("nav"));
-
-
-            // 📍📍📍Portfolio 제목 타이핑📍📍📍
-            const pSpan = document.querySelector(".p-style");
-            const oSpan = document.querySelector(".o-style");
-
-            const text = "Portfolio";
-            const first = text[0];          // P
-            const rest = text.slice(1);     // ortfolio
-
-            let idx = 0;
-            let isDeleting = false;
-
-            function loop() {
-
-                if (!isDeleting) {
-                    // ✅ 타이핑
-                    if (idx === 0) {
-                        pSpan.textContent = first;
-                        oSpan.textContent = "";
-                    } else {
-                        pSpan.textContent = first;
-                        oSpan.textContent = rest.slice(0, idx);
-                    }
-
-                    idx++;
-
-                    if (idx > rest.length) {
-                        isDeleting = true;
-                        setTimeout(loop, 1800); // 작성 후 멈추는 시간
-                        return;
-                    }
-
-                } else {
-                    // ✅ 삭제
-                    if (idx <= 0) {
-                        pSpan.textContent = "";
-                        oSpan.textContent = "";
-                        isDeleting = false;
-                        idx = 0;
-                    } else {
-                        oSpan.textContent = rest.slice(0, idx);
-                        idx--;
-                    }
-                }
-                setTimeout(loop, isDeleting ? 120 : 200); // 삭제 시간 : 타이핑 시간
-            }
-            loop();
-
-        };//script end
-    </script>
+    <!-- GSAP -->
+    <script src="lib/gsap-latest-beta.min.js"></script>
+    <script src="lib/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body>
@@ -395,9 +293,54 @@
             </section><!-- #section1 -->
 
             <section class="section" id="section2">
-                <h3 class="title">
-                    
-                </h3><!-- title -->
+                <div class="inner">
+                    <h3 class="title gs_reveal">
+                        <p>R</p>
+                        <p>esponsive Web</p>
+                    </h3><!-- title -->
+
+                    <div class="list">
+
+                        <div class="item gs_reveal gs_reveal_fromLeft">
+                            <div class="image_wrap">
+                                <div class="mockup">
+                                    <div class="mockup_img">
+                                        <img src="img/cine21_gif.gif" alt="">
+                                    </div>
+                                </div><!-- mockup -->
+                                <div class="mockup2">
+                                    <img src="img/cine_mobile-mockup.png" alt="">
+                                </div><!-- mockup2 -->
+                            </div><!-- image_wrap -->
+
+                            <div class="content gs_reveal">
+                                <div class="content_inner">
+                                    <div class="top_wrap gs_reveal">
+                                        <div class="title">
+                                            <h4>Cine 21</h4>
+                                            <strong>국내 대표 영화 전문 매거진 씨네21의 반응형 웹리뉴얼</strong>
+                                        </div><!-- title -->
+                                        <ul>
+                                            <li><b>Tools</b>VSCode, Figma</li>
+                                            <li><b>Languages</b>HTML5, CSS3, JavaScript</li>
+                                            <li><b>Libraries</b>jQuery, fullpage.js</li>
+                                            <li><b>Role</b>기획, 디자인, 퍼블리싱 100%</li>
+                                        </ul>
+                                        <p>방대한 영화 데이터를 쉽게 탐색할 수 있도록 섹션 구분을 풀페이지 디자인을 활용하여 가독성과 몰입도를 높였습니다. 이를 통해 콘텐츠 중심
+                                            UI와 정보 구조화의 중요성을 깨달았습니다.</p>
+                                    </div><!-- top_wrap -->
+                                    <div class="btn_wrap gs_reveal">
+                                        <button><a href="#">Go Web</a></button>
+                                        <button><a href="#">Process</a></button>
+                                        <button><a href="#">Figma</a></button>
+                                        <img src="img/cine21QR.jpg" alt="씨네21 QR" class="qr">
+                                    </div><!-- btn_wrap -->
+                                </div><!-- content_inner -->
+                            </div><!-- content -->
+                        </div><!-- item -->
+                    </div><!-- list -->
+
+                </div><!-- inner -->
             </section><!-- #section2 -->
 
         </main><!-- main -->
