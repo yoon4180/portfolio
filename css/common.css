@@ -51,18 +51,21 @@ nav {
     flex-wrap: wrap;
     position: fixed;
     z-index: 999;
+    position: fixed;
+    top: 0;
+    right: 100px;
 }
 
 text {
-    fill: #0568f2;
+    fill: var(--color-main);
     font-family: "Life Savers", serif;
     font-weight: 800;
     font-style: normal;
-    font-size: 28px;
+    font-size: 2.8rem;
 }
 
 path {
-    stroke: #ed5af2;
+    stroke: var(--color-subG);
     stroke-width: 4px;
     fill: none;
     stroke-linecap: round;

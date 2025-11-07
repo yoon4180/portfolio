@@ -25,25 +25,42 @@
 .main_visual .inner .title {
     display: flex;
     align-items: end;
+    margin: 0;
 }
 
-.main_visual .inner .title p:first-child {
+.main_visual .inner .title .p-style {
     font-family: var(--font-great);
     font-size: 25rem;
 }
 
-.main_visual .inner .title p:last-child {
+.main_visual .inner .title .o-style {
     font-family: var(--font-cor);
     font-size: 18.7rem;
     font-weight: 500;
-    margin-left: -5.7rem;
+    margin-left: -3rem;
+}
+
+/* 커서 */
+.typing {
+    border-right: 3px solid #000;
+    animation: cursor .4s infinite;
+}
+
+@keyframes cursor {
+    0% {
+        border-color: transparent;
+    }
+
+    100% {
+        border-color: #000;
+    }
 }
 
 .main_visual .inner .deco1 {
-    width: 21.8px;
+    width: 21.8rem;
     position: absolute;
-    bottom: 15rem;
-    right: -10rem;
+    bottom: 40rem;
+    right: 0;
     transform: rotate(320deg);
 }
 
@@ -102,8 +119,228 @@
 
 
 /* ################ 섹션1 ################ */
-.sec-01 {
-    background: ;
+#section1 {
+    height: 100vh;
+    background: url('../img/sec-01_bg.png') center no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.sec-01 {}
-.sec-01 {}
+
+/* 레이스 */
+#section1::before {
+    content: '';
+    width: 100%;
+    height: 120px;
+    background: url('../img/lace.png') repeat-x center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#section1 .card {
+    display: block;
+    padding: 6rem 3.5rem;
+    border-radius: 30px;
+    background-color: var(--color-bg);
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+}
+
+#section1 .card .inner {
+    display: flex;
+    gap: 2.2rem;
+}
+
+#section1 .card .inner .my {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+#section1 .card .inner .my .my-01 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+#section1 .card .inner .my .my-01 .idpic {
+    width: 18.5rem;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+#section1 .card .inner .my .my-01 .resume_btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 14rem;
+    height: 4rem;
+    border: 1px solid var(--color-subG);
+    border-radius: 10px;
+    background-color: #ffffff;
+}
+
+#section1 .card .inner .my .my-01 .resume_btn p {
+    font-family: var(--font-kr);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-subG);
+    line-height: 100%;
+    margin: 0;
+}
+
+#section1 .card .inner .my .my-01 .resume_btn img {
+    width: 2.4rem;
+    height: 2.4rem;
+    display: block;
+}
+
+#section1 .card .inner .my .my-02 {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+#section1 .card .inner .my .my-02 .personal {
+    display: flex;
+    gap: 10px
+}
+
+#section1 .card .inner .my .my-02 .personal b {
+    width: 5.8rem;
+    font-family: var(--font-life);
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+#section1 .card .inner .my .my-02 .personal p {
+    font-family: var(--font-kr);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+#section1 .card .inner .info {
+    display: flex;
+    flex-direction: column;
+    gap: 6.7rem;
+}
+
+#section1 .card .inner .info .info-01 {
+    display: flex;
+    gap: 10px;
+}
+
+#section1 .card .inner .info .item1 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#section1 .card .inner .info .item2 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#section1 .card .inner .info .item2 .icon_wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px 22px;
+    width: calc(4.2rem * 4 + 2.2rem * 3);
+}
+
+#section1 .card .inner .info .item2 .icon_wrap img {
+    width: 4.2rem;
+    height: 4.2rem;
+    object-fit: cover;
+    display: block;
+}
+
+#section1 .card .inner .info h2 {
+    font-family: var(--font-apple);
+    font-size: 3rem;
+    color: var(--color-subR);
+}
+
+#section1 .card .inner .info .text_wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#section1 .card .inner .info .text_wrap .text {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+#section1 .card .inner .info .text_wrap .text p {
+    font-family: var(--font-cal);
+    font-size: 2rem;
+}
+
+#section1 .card .inner .info .text_wrap .text .inst {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-family: var(--font-kr);
+}
+
+#section1 .card .inner .info .text_wrap .text .inst b {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+#section1 .card .inner .info .text_wrap .text .inst span {
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+/* 마키효과 */
+#section1 .marquee {
+    width: 100%;
+    height: 5rem;
+    overflow: hidden;
+    background-color: rgb(from var(--color-subG) r g b / 0.7);
+    border-top: 2px solid var(--color-subR);
+    border-bottom: 2px solid var(--color-subR);
+    color: var(--color-bg);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+}
+
+#section1 .marquee .marquee-track {
+    display: flex;
+    white-space: nowrap;
+    gap: 5rem;
+    font-family: var(--font-cal);
+    font-size: 2rem;
+    line-height: 5rem;
+    transform: translateX(0);
+    animation: marqueeMove 80s linear infinite;
+}
+
+@keyframes marqueeMove {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+
+/* ################ 섹션2 ################ */

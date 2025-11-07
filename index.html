@@ -9,9 +9,12 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- GSAP -->
     <script src="lib/gsap.min.js"></script>
+    <!-- jQuery -->
+    <script src="lib/jquery-3.7.1.min.js"></script>
 
     <script>
         window.onload = () => {
+            // 📍📍📍내비게이션📍📍📍
             class NavigationEffect {
                 constructor(navigation) {
                     this.navigation = navigation;
@@ -62,11 +65,57 @@
                     }
                 }
             }
+            new NavigationEffect(document.querySelector("nav"));
 
-            document.addEventListener("DOMContentLoaded", () => {
-                new NavigationEffect(document.querySelector("nav"));
-            });
-        }
+
+            // 📍📍📍Portfolio 제목 타이핑📍📍📍
+            const pSpan = document.querySelector(".p-style");
+            const oSpan = document.querySelector(".o-style");
+
+            const text = "Portfolio";
+            const first = text[0];          // P
+            const rest = text.slice(1);     // ortfolio
+
+            let idx = 0;
+            let isDeleting = false;
+
+            function loop() {
+
+                if (!isDeleting) {
+                    // ✅ 타이핑
+                    if (idx === 0) {
+                        pSpan.textContent = first;
+                        oSpan.textContent = "";
+                    } else {
+                        pSpan.textContent = first;
+                        oSpan.textContent = rest.slice(0, idx);
+                    }
+
+                    idx++;
+
+                    if (idx > rest.length) {
+                        isDeleting = true;
+                        setTimeout(loop, 1800); // 작성 후 멈추는 시간
+                        return;
+                    }
+
+                } else {
+                    // ✅ 삭제
+                    if (idx <= 0) {
+                        pSpan.textContent = "";
+                        oSpan.textContent = "";
+                        isDeleting = false;
+                        idx = 0;
+                    } else {
+                        oSpan.textContent = rest.slice(0, idx);
+                        idx--;
+                    }
+                }
+                setTimeout(loop, isDeleting ? 120 : 200); // 삭제 시간 : 타이핑 시간
+            }
+            loop();
+
+        };//script end
     </script>
 </head>
 
@@ -74,7 +123,7 @@
     <div id="wrap">
         <nav>
             <a href="#">
-                <svg viewBox="0 0 200 140" width="200px" height="140px">
+                <svg viewBox="0 0 200 140" width="150px" height="110px">
                     <path id="home-path" d="M 10,90 Q 100,90 190,90" />
                     <text class="path-text">
                         <textPath href="#home-path" startOffset="50%" text-anchor="middle">
@@ -84,31 +133,41 @@
                 </svg>
             </a>
             <a href="#">
-                <svg viewBox="0 0 200 140" width="200px" height="140px">
+                <svg viewBox="0 0 200 140" width="150px" height="110px">
                     <path id="work-path" d="M 10,90 Q 100,90 190,90" />
                     <text class="path-text">
                         <textPath href="#work-path" startOffset="50%" text-anchor="middle">
+                            <tspan dy="-12">About me</tspan>
+                        </textPath>
+                    </text>
+                </svg>
+            </a>
+            <a href="#">
+                <svg viewBox="0 0 200 140" width="150px" height="110px">
+                    <path id="notes-path" d="M 10,90 Q 100,90 190,90" />
+                    <text class="path-text">
+                        <textPath href="#notes-path" startOffset="50%" text-anchor="middle">
                             <tspan dy="-12">My work</tspan>
                         </textPath>
                     </text>
                 </svg>
             </a>
             <a href="#">
-                <svg viewBox="0 0 200 140" width="200px" height="140px">
-                    <path id="notes-path" d="M 10,90 Q 100,90 190,90" />
+                <svg viewBox="0 0 200 140" width="150px" height="110px">
+                    <path id="about-path" d="M 10,90 Q 100,90 190,90" />
                     <text class="path-text">
-                        <textPath href="#notes-path" startOffset="50%" text-anchor="middle">
-                            <tspan dy="-12">Notes</tspan>
+                        <textPath href="#about-path" startOffset="50%" text-anchor="middle">
+                            <tspan dy="-12">Design</tspan>
                         </textPath>
                     </text>
                 </svg>
             </a>
             <a href="#">
-                <svg viewBox="0 0 200 140" width="200px" height="140px">
-                    <path id="about-path" d="M 10,90 Q 100,90 190,90" />
+                <svg viewBox="0 0 200 140" width="150px" height="110px">
+                    <path id="contact-path" d="M 10,90 Q 100,90 190,90" />
                     <text class="path-text">
-                        <textPath href="#about-path" startOffset="50%" text-anchor="middle">
-                            <tspan dy="-12">About me</tspan>
+                        <textPath href="#contact-path" startOffset="50%" text-anchor="middle">
+                            <tspan dy="-12">Contact</tspan>
                         </textPath>
                     </text>
                 </svg>
@@ -121,57 +180,225 @@
                     <div class="envelopeHolder">
                         <div class="insideLetterHolder">
                             <div class="insideLetterScroll">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis elit magna. Proin aliquam
-                                egestas mollis. Vivamus tempus, erat eget aliquet blandit, erat sem tempus arcu, volutpat finibus
-                                est magna in justo. Donec mollis arcu ac cursus gravida. Aliquam ac tempor augue. Praesent vitae
-                                tristique tortor. Aliquam pharetra nunc rutrum odio condimentum tempor. Ut nulla orci, vestibulum ac
-                                odio id, vehicula ultricies nisi. Proin commodo tortor eget tempus tristique. Duis vitae aliquam
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis elit magna.
+                                Proin aliquam
+                                egestas mollis. Vivamus tempus, erat eget aliquet blandit, erat sem tempus arcu,
+                                volutpat finibus
+                                est magna in justo. Donec mollis arcu ac cursus gravida. Aliquam ac tempor augue.
+                                Praesent vitae
+                                tristique tortor. Aliquam pharetra nunc rutrum odio condimentum tempor. Ut nulla orci,
+                                vestibulum ac
+                                odio id, vehicula ultricies nisi. Proin commodo tortor eget tempus tristique. Duis vitae
+                                aliquam
                                 leo.
                                 <br><br>
-                                Donec dapibus sodales sagittis. Nunc tincidunt volutpat nulla, sed congue sem. Integer orci felis,
-                                imperdiet in laoreet a, gravida at nisl. Orci varius natoque penatibus et magnis dis parturient
-                                montes, nascetur ridiculus mus. In ligula quam, sollicitudin dictum quam vitae, dignissim pharetra
-                                nulla. Aliquam accumsan rhoncus tortor, egestas venenatis dui dapibus nec. Duis dolor eros,
-                                condimentum eget cursus aliquet, ultricies eu eros. Nam at dolor at orci ultricies pellentesque.
-                                Pellentesque a arcu libero. Aenean vestibulum nisi vel ante consequat condimentum. Nulla tempor nunc
-                                id odio semper molestie. Proin et aliquet nibh, a lobortis magna. Nulla ultricies sit amet purus ac
+                                Donec dapibus sodales sagittis. Nunc tincidunt volutpat nulla, sed congue sem. Integer
+                                orci felis,
+                                imperdiet in laoreet a, gravida at nisl. Orci varius natoque penatibus et magnis dis
+                                parturient
+                                montes, nascetur ridiculus mus. In ligula quam, sollicitudin dictum quam vitae,
+                                dignissim pharetra
+                                nulla. Aliquam accumsan rhoncus tortor, egestas venenatis dui dapibus nec. Duis dolor
+                                eros,
+                                condimentum eget cursus aliquet, ultricies eu eros. Nam at dolor at orci ultricies
+                                pellentesque.
+                                Pellentesque a arcu libero. Aenean vestibulum nisi vel ante consequat condimentum. Nulla
+                                tempor nunc
+                                id odio semper molestie. Proin et aliquet nibh, a lobortis magna. Nulla ultricies sit
+                                amet purus ac
                                 vulputate. Suspendisse in massa ac justo mollis sagittis eget eu nulla.
                                 <br><br>
-                                Fusce magna erat, malesuada a pretium et, hendrerit vulputate dui. Sed vitae feugiat magna. Aliquam
-                                mollis enim at purus porttitor iaculis. Suspendisse quam urna, placerat eu mauris a, suscipit
-                                rhoncus lectus. Sed ullamcorper eros ac fringilla venenatis. Duis at dolor varius, ultricies lectus
-                                a, molestie nisi. Vivamus sagittis ante nec sodales tristique. Vivamus id rhoncus est. Morbi purus
-                                leo, fermentum id lectus eget, mattis ullamcorper neque. Donec tristique dui id augue congue
+                                Fusce magna erat, malesuada a pretium et, hendrerit vulputate dui. Sed vitae feugiat
+                                magna. Aliquam
+                                mollis enim at purus porttitor iaculis. Suspendisse quam urna, placerat eu mauris a,
+                                suscipit
+                                rhoncus lectus. Sed ullamcorper eros ac fringilla venenatis. Duis at dolor varius,
+                                ultricies lectus
+                                a, molestie nisi. Vivamus sagittis ante nec sodales tristique. Vivamus id rhoncus est.
+                                Morbi purus
+                                leo, fermentum id lectus eget, mattis ullamcorper neque. Donec tristique dui id augue
+                                congue
                                 fermentum. Morbi mollis egestas mauris eu fringilla.
                                 <br><br>
-                                Cras aliquam tortor sed sapien tincidunt iaculis. Phasellus ac neque ut dolor tristique consectetur.
-                                Nulla a lacus tempor velit maximus consequat. Etiam mauris lectus, luctus aliquet urna a, bibendum
-                                faucibus diam. Nunc et auctor leo, quis consequat erat. Etiam ac blandit justo. Aenean quis rhoncus
+                                Cras aliquam tortor sed sapien tincidunt iaculis. Phasellus ac neque ut dolor tristique
+                                consectetur.
+                                Nulla a lacus tempor velit maximus consequat. Etiam mauris lectus, luctus aliquet urna
+                                a, bibendum
+                                faucibus diam. Nunc et auctor leo, quis consequat erat. Etiam ac blandit justo. Aenean
+                                quis rhoncus
                                 ante.
                                 <br><br>
-                                Curabitur dignissim sapien ut nisl auctor, non pretium massa aliquet. Morbi tincidunt nulla nec
-                                massa fermentum, scelerisque ullamcorper urna molestie. Vestibulum ut fermentum sem. Maecenas sed
-                                bibendum magna. Nullam non orci diam. Integer elit justo, faucibus quis diam porttitor, malesuada
+                                Curabitur dignissim sapien ut nisl auctor, non pretium massa aliquet. Morbi tincidunt
+                                nulla nec
+                                massa fermentum, scelerisque ullamcorper urna molestie. Vestibulum ut fermentum sem.
+                                Maecenas sed
+                                bibendum magna. Nullam non orci diam. Integer elit justo, faucibus quis diam porttitor,
+                                malesuada
                                 condimentum justo. Nulla quis lectus dapibus, commodo ante eu, blandit nisi.
                             </div><!-- insideLetterScroll -->
                         </div><!-- insideLetterHolder -->
                         <div class="topLetterHolder"></div>
                     </div><!-- envelopeHolder -->
-                    <div class="title">
-                        <p>P</p>
-                        <p>ortfolio</p>
-                    </div><!-- title -->
+
+                    <h1 class="title">
+                        <p class="typing">
+                            <span class="p-style"></span>
+                            <span class="o-style"></span>
+                        </p><!-- typing -->
+                    </h1><!-- title -->
+
                     <div class="deco1">
                         <img src="img/deco1.png" alt="나비">
                     </div><!-- deco1 -->
                 </div><!-- inner -->
             </div><!-- main_visual -->
 
-            <section class="sec-01">
+            <section class="section" id="section1">
                 <div class="card">
+                    <div class="inner">
+                        <div class="my">
+                            <div class="my-01">
+                                <img src="img/idpic.png" alt="증명사진" class="idpic">
+                                <button class="resume_btn">
+                                    <p>이력서 보기</p>
+                                    <img src="icon/icon_download.png" alt="다운로드">
+                                </button><!-- resume_btn -->
+                            </div><!-- my-01 -->
+                            <ul class="my-02">
+                                <li class="personal">
+                                    <b>Name</b>
+                                    <p>김 윤</p>
+                                </li><!-- personal -->
+                                <li class="personal">
+                                    <b>Birth</b>
+                                    <p>2000.04.18</p>
+                                </li><!-- personal -->
+                                <li class="personal">
+                                    <b>Phone</b>
+                                    <p>010-9110-0418</p>
+                                </li><!-- personal -->
+                                <li class="personal">
+                                    <b>E-mail</b>
+                                    <p>ab750st@naver.com</p>
+                                </li><!-- personal -->
+                            </ul><!-- my-02 -->
+                        </div><!-- my -->
 
+                        <div class="info">
+                            <div class="info-01">
+                                <div class="item1">
+                                    <h2>Certificate</h2>
+                                    <ul class="text_wrap">
+                                        <li class="text">
+                                            <p>2024</p>
+                                            <div class="inst">
+                                                <b>JLPT N3</b>
+                                                <span>일본국제교류기금</span>
+                                            </div><!-- inst -->
+                                        </li><!-- text -->
+                                        <li class="text">
+                                            <p>2024</p>
+                                            <div class="inst">
+                                                <b>TOEIC 865점</b>
+                                                <span>ETS</span>
+                                            </div><!-- inst -->
+                                        </li><!-- text -->
+                                        <li class="text">
+                                            <p>2022</p>
+                                            <div class="inst">
+                                                <b>GTQ 1급</b>
+                                                <span>한국생산성본부</span>
+                                            </div><!-- inst -->
+                                        </li><!-- text -->
+                                        <li class="text">
+                                            <p>2022</p>
+                                            <div class="inst">
+                                                <b>컴퓨터활용능력 1급</b>
+                                                <span>대한상공회의소</span>
+                                            </div><!-- inst -->
+                                        </li><!-- text -->
+                                    </ul><!-- text_wrap -->
+                                </div><!-- item1 -->
+                                <div class="item2">
+                                    <h2>Skill</h2>
+                                    <div class="icon_wrap">
+                                        <img src="icon/VSC.png" alt="비주얼스튜디오코드">
+                                        <img src="icon/html.png" alt="html">
+                                        <img src="icon/css.png" alt="css">
+                                        <img src="icon/javascript.png" alt="자바스크립트">
+                                        <img src="icon/photoshop.png" alt="포토샵">
+                                        <img src="icon/illustrator.png" alt="일러스트레이터">
+                                        <img src="icon/github.png" alt="깃허브">
+                                        <img src="icon/git.png" alt="깃">
+                                    </div><!-- icon_wrap -->
+                                </div><!-- item2 -->
+                            </div><!-- info-01 -->
+
+                            <div class="item1">
+                                <h2>Education</h2>
+                                <ul class="text_wrap">
+                                    <li class="text">
+                                        <p>2025</p>
+                                        <div class="inst">
+                                            <b>UI/UX 반응형 웹디자인&웹퍼블리셔 양성과정</b>
+                                            <span>2025.07 ~ 2025.11</span>
+                                        </div><!-- inst -->
+                                    </li><!-- text -->
+                                    <li class="text">
+                                        <p>2024</p>
+                                        <div class="inst">
+                                            <b>UM 글로벌 어학실습</b>
+                                            <span>2025.07 ~ 2025.08</span>
+                                        </div><!-- inst -->
+                                    </li><!-- text -->
+                                    <li class="text">
+                                        <p>2023</p>
+                                        <div class="inst">
+                                            <b>BGM 부산글로벌게임센터 서포터즈 7기</b>
+                                            <span>2023.08 ~ 2023.12</span>
+                                        </div><!-- inst -->
+                                    </li><!-- text -->
+                                    <li class="text">
+                                        <p>2025</p>
+                                        <div class="inst">
+                                            <b>부경대학교 생물공학과</b>
+                                            <span>2019.03 ~ 2025.02</span>
+                                        </div><!-- inst -->
+                                    </li><!-- text -->
+                                    <li class="text">
+                                        <p>2019</p>
+                                        <div class="inst">
+                                            <b>부흥고등학교</b>
+                                            <span>2016.03 ~ 2019.02</span>
+                                        </div><!-- inst -->
+                                    </li><!-- text -->
+                                </ul><!-- text_wrap -->
+                            </div><!-- item1 -->
+
+                        </div><!-- info -->
+                    </div><!-- inner -->
                 </div><!-- card -->
-            </section><!-- sec-01 -->
+
+                <div class="marquee">
+                    <div class="marquee-track">
+                        <span>💌</span><span>I’m always ready to learn and grow</span>
+                        <span>💌</span><span>I thrive on exploring new ideas and Experiences</span>
+                        <span>💌</span><span>I enjoy creating clarity and structure</span>
+                        <span>💌</span><span>I’m learning more about myself</span>
+
+                        <span>💌</span><span>I’m always ready to learn and grow</span>
+                        <span>💌</span><span>I thrive on exploring new ideas and Experiences</span>
+                        <span>💌</span><span>I enjoy creating clarity and structure</span>
+                        <span>💌</span><span>I’m learning more about myself</span>
+                    </div>
+                </div><!-- marquee -->
+            </section><!-- #section1 -->
+
+            <section class="section" id="section2">
+                <h3 class="title">
+                    
+                </h3><!-- title -->
+            </section><!-- #section2 -->
 
         </main><!-- main -->
     </div><!-- #wrap -->
