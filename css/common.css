@@ -40,7 +40,9 @@ html {
 }
 
 body {
+    width: 100vw;
     min-width: 1600px;
+    overflow-x: hidden;
     background-color: var(--color-bg);
     color: var(--color-main);
 }

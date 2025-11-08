@@ -54,7 +54,7 @@ window.onload = () => {
 
 
     // 📍📍📍Portfolio 제목 타이핑📍📍📍
-    const pSpan = document.querySelector(".p-style");
+    /* const pSpan = document.querySelector(".p-style");
     const oSpan = document.querySelector(".o-style");
 
     const text = "Portfolio";
@@ -98,7 +98,66 @@ window.onload = () => {
         }
         setTimeout(loop, isDeleting ? 120 : 200); // 삭제 시간 : 타이핑 시간
     }
+    loop(); */
+// ✅ Portfolio
+// 📍📍 공용 타이핑 함수 📍📍
+function typeLoop(pTarget, oTarget, text, stay = 1800, typeSpeed = 200, delSpeed = 120) {
+    const first = text[0];       
+    const rest = text.slice(1);  
+
+    let idx = 0;
+    let isDeleting = false;
+
+    function loop() {
+        if (!isDeleting) {
+            if (idx === 0) {
+                pTarget.textContent = first;
+                oTarget.textContent = "";
+            } else {
+                pTarget.textContent = first;
+                oTarget.textContent = rest.slice(0, idx);
+            }
+            idx++;
+
+            if (idx > rest.length) {
+                isDeleting = true;
+                setTimeout(loop, stay);
+                return;
+            }
+
+        } else {
+            if (idx <= 0) {
+                pTarget.textContent = "";
+                oTarget.textContent = "";
+                isDeleting = false;
+                idx = 0;
+            } else {
+                oTarget.textContent = rest.slice(0, idx);
+                idx--;
+            }
+        }
+
+        setTimeout(loop, isDeleting ? delSpeed : typeSpeed);
+    }
+
     loop();
+}
+
+
+// ✅ Portfolio
+const p1 = document.querySelector(".p-style");
+const o1 = document.querySelector(".o-style");
+if (p1 && o1) {
+    typeLoop(p1, o1, "Portfolio");
+}
+
+// ✅ Contact
+const p2 = document.querySelector(".p-style-footer");
+const o2 = document.querySelector(".o-style-footer");
+if (p2 && o2) {
+    typeLoop(p2, o2, "Contact");
+}
+
 
 
     // 📍📍📍섹션 1 스크롤 효과📍📍📍
