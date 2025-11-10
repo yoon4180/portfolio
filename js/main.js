@@ -208,8 +208,10 @@ window.onload = () => {
         });
     });
 
-    /* Fancybox.bind("[data-fancybox]", {
-        // Your custom options
-      }); */
 
+
+    // 📍📍📍팬시박스📍📍📍
+    Fancybox.bind("[data-fancybox]", {
+        // Your custom options
+      });
 }
