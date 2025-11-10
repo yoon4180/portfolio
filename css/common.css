@@ -42,7 +42,6 @@ html {
 body {
     width: 100vw;
     min-width: 1600px;
-    overflow-x: hidden;
     background-color: var(--color-bg);
     color: var(--color-main);
 }
@@ -77,4 +76,136 @@ path {
     nav {
         flex-direction: column;
     }
+}
+
+/* ################ 푸터 ################ */
+.footer {
+    width: 100%;
+    height: 677px;
+    background: url('../img/footer_bg.png') center center no-repeat;
+    background-size: cover;
+    /* position: relative; */
+}
+
+.footer .inner {
+    max-width: 1764px;
+    width: calc(100% - 80px);
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.footer .text_wrap {
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    position: absolute;
+    bottom: 6.5rem;
+    left: 0;
+}
+
+.footer .text_wrap .title {
+    width: 70rem;
+    height: 32rem;
+}
+
+.footer .text_wrap .contact_wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.footer .text_wrap .contact_wrap>p {
+    font-family: var(--font-life);
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--color-subR);
+    background-color: var(--color-bg);
+    padding: 10px 20px;
+    border: 1px solid var(--color-subR);
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.footer .text_wrap .contact_wrap>p:hover {
+    background-color: var(--color-subR);
+    color: var(--color-bg);
+}
+
+.footer .text_wrap .contact_wrap .contact {
+    display: flex;
+    gap: 1.8rem;
+    align-items: center;
+}
+
+.footer .text_wrap .contact_wrap .contact img {
+    width: 150px;
+}
+
+.footer .text_wrap .contact_wrap .contact ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.7rem;
+}
+
+.footer .text_wrap .contact_wrap .contact ul li {
+    font-family: var(--font-life);
+    font-size: 20px;
+    font-weight: 300; 
+    display: flex;
+}
+
+.footer .text_wrap .contact_wrap .contact ul li b {
+    width: 9rem;
+    font-weight: 900;
+}
+
+.footer .deco1 {
+    width: 300px;
+    position: absolute;
+    right: 13rem;
+    top: 9rem;
+    transform: rotate(-18deg);
+}
+
+.footer .deco2 {
+    width: 180px;
+    position: absolute;
+    right: 0;
+    top: 33rem;
+    transform: rotate(-52deg);
+}
+
+.footer img {
+    width: 100%;
+    display: block;
+}
+
+
+/* 커서 */
+.custom-cursor {
+    width: 40px;
+    height: 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -505);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    border-radius: 50%;
+    background-color: rgb(from var(--color-main) r g b / 0.5);
+    color: var(--color-bg);
+    font-family: var(--font-cal);
+    font-size: 12px;
+    opacity: 0;
+    z-index: 9999;
+    transition: all 0.2s;
+}
+
+.custom-cursor.active {
+    opacity: 1;
 }

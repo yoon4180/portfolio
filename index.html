@@ -7,6 +7,7 @@
     <title>Yoon's Porfolio</title>
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css" />
     <!-- GSAP -->
     <script src="lib/gsap.min.js"></script>
     <!-- jQuery -->
@@ -15,12 +16,14 @@
     <script src="lib/gsap-latest-beta.min.js"></script>
     <script src="lib/ScrollTrigger.min.js"></script>
     <script src="js/main.js"></script>
+    <!-- FancyBox -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.umd.js"></script>
 </head>
 
 <body>
     <div id="wrap">
         <nav>
-            <a href="#">
+            <a href="#main_visual">
                 <svg viewBox="0 0 200 140" width="150px" height="110px">
                     <path id="home-path" d="M 10,90 Q 100,90 190,90" />
                     <text class="path-text">
@@ -30,7 +33,7 @@
                     </text>
                 </svg>
             </a>
-            <a href="#">
+            <a href="#section1">
                 <svg viewBox="0 0 200 140" width="150px" height="110px">
                     <path id="work-path" d="M 10,90 Q 100,90 190,90" />
                     <text class="path-text">
@@ -40,7 +43,7 @@
                     </text>
                 </svg>
             </a>
-            <a href="#">
+            <a href="#section2">
                 <svg viewBox="0 0 200 140" width="150px" height="110px">
                     <path id="notes-path" d="M 10,90 Q 100,90 190,90" />
                     <text class="path-text">
@@ -50,7 +53,7 @@
                     </text>
                 </svg>
             </a>
-            <a href="#">
+            <a href="#section5">
                 <svg viewBox="0 0 200 140" width="150px" height="110px">
                     <path id="about-path" d="M 10,90 Q 100,90 190,90" />
                     <text class="path-text">
@@ -60,7 +63,7 @@
                     </text>
                 </svg>
             </a>
-            <a href="#">
+            <a href="#footer">
                 <svg viewBox="0 0 200 140" width="150px" height="110px">
                     <path id="contact-path" d="M 10,90 Q 100,90 190,90" />
                     <text class="path-text">
@@ -73,66 +76,35 @@
         </nav>
 
         <main class="main">
-            <div class="main_visual">
+            <div class="main_visual" id="main_visual">
                 <div class="inner">
                     <div class="envelopeHolder">
                         <div class="insideLetterHolder">
                             <div class="insideLetterScroll">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur quis elit magna.
-                                Proin aliquam
-                                egestas mollis. Vivamus tempus, erat eget aliquet blandit, erat sem tempus arcu,
-                                volutpat finibus
-                                est magna in justo. Donec mollis arcu ac cursus gravida. Aliquam ac tempor augue.
-                                Praesent vitae
-                                tristique tortor. Aliquam pharetra nunc rutrum odio condimentum tempor. Ut nulla orci,
-                                vestibulum ac
-                                odio id, vehicula ultricies nisi. Proin commodo tortor eget tempus tristique. Duis vitae
-                                aliquam
-                                leo.
+                                In the process of designing, I have learned that meaningful experiences are built not
+                                only through visuals but also through the subtle details that guide users effortlessly
+                                through a product. Each project teaches me something new—how people read, move, and
+                                react inside a digital space. I believe design becomes valuable when it removes
+                                uncertainty and invites clarity, allowing users to feel naturally connected to what they
+                                see.
                                 <br><br>
-                                Donec dapibus sodales sagittis. Nunc tincidunt volutpat nulla, sed congue sem. Integer
-                                orci felis,
-                                imperdiet in laoreet a, gravida at nisl. Orci varius natoque penatibus et magnis dis
-                                parturient
-                                montes, nascetur ridiculus mus. In ligula quam, sollicitudin dictum quam vitae,
-                                dignissim pharetra
-                                nulla. Aliquam accumsan rhoncus tortor, egestas venenatis dui dapibus nec. Duis dolor
-                                eros,
-                                condimentum eget cursus aliquet, ultricies eu eros. Nam at dolor at orci ultricies
-                                pellentesque.
-                                Pellentesque a arcu libero. Aenean vestibulum nisi vel ante consequat condimentum. Nulla
-                                tempor nunc
-                                id odio semper molestie. Proin et aliquet nibh, a lobortis magna. Nulla ultricies sit
-                                amet purus ac
-                                vulputate. Suspendisse in massa ac justo mollis sagittis eget eu nulla.
+                                Throughout my work, I focus on thoughtful structure, simple hierarchy, and an honest
+                                visual language. I seek to create interfaces that feel intuitive, familiar, and human.
+                                Every pixel, margin, and gesture carries intention, and I strive to shape these elements
+                                into experiences that communicate without speaking too loudly. Design, to me, is not
+                                decoration—it is a form of understanding.
                                 <br><br>
-                                Fusce magna erat, malesuada a pretium et, hendrerit vulputate dui. Sed vitae feugiat
-                                magna. Aliquam
-                                mollis enim at purus porttitor iaculis. Suspendisse quam urna, placerat eu mauris a,
-                                suscipit
-                                rhoncus lectus. Sed ullamcorper eros ac fringilla venenatis. Duis at dolor varius,
-                                ultricies lectus
-                                a, molestie nisi. Vivamus sagittis ante nec sodales tristique. Vivamus id rhoncus est.
-                                Morbi purus
-                                leo, fermentum id lectus eget, mattis ullamcorper neque. Donec tristique dui id augue
-                                congue
-                                fermentum. Morbi mollis egestas mauris eu fringilla.
+                                As I continue exploring, I observe how technology and design interact and evolve
+                                together. Each challenge becomes an opportunity to refine not only the visual form but
+                                also the emotional tone of the experience. Consistency, usability, and clarity guide my
+                                decisions, but so does curiosity. It is this balance that drives me to shape products
+                                that are both functional and resonant.
                                 <br><br>
-                                Cras aliquam tortor sed sapien tincidunt iaculis. Phasellus ac neque ut dolor tristique
-                                consectetur.
-                                Nulla a lacus tempor velit maximus consequat. Etiam mauris lectus, luctus aliquet urna
-                                a, bibendum
-                                faucibus diam. Nunc et auctor leo, quis consequat erat. Etiam ac blandit justo. Aenean
-                                quis rhoncus
-                                ante.
-                                <br><br>
-                                Curabitur dignissim sapien ut nisl auctor, non pretium massa aliquet. Morbi tincidunt
-                                nulla nec
-                                massa fermentum, scelerisque ullamcorper urna molestie. Vestibulum ut fermentum sem.
-                                Maecenas sed
-                                bibendum magna. Nullam non orci diam. Integer elit justo, faucibus quis diam porttitor,
-                                malesuada
-                                condimentum justo. Nulla quis lectus dapibus, commodo ante eu, blandit nisi.
+                                I hope this portfolio reflects my process—steady, thoughtful, and committed to growth.
+                                These works represent not only the outcomes but also the moments of learning,
+                                experimentation, and refinement behind them. Thank you for taking the time to explore my
+                                designs. I look forward to creating more meaningful experiences, learning from each
+                                step, and designing with purpose and intention.
                             </div><!-- insideLetterScroll -->
                         </div><!-- insideLetterHolder -->
                         <div class="topLetterHolder"></div>
@@ -149,7 +121,7 @@
                         <img src="img/deco1.png" alt="나비">
                     </div><!-- deco1 -->
                 </div><!-- inner -->
-            </div><!-- main_visual -->
+            </div><!-- #main_visual -->
 
             <section id="section1">
                 <div class="card">
@@ -220,10 +192,12 @@
                                 <div class="item2">
                                     <h2>Skill</h2>
                                     <div class="icon_wrap">
+                                        <img src="icon/Figma.png" alt="피그마">
                                         <img src="icon/VSC.png" alt="비주얼스튜디오코드">
                                         <img src="icon/html.png" alt="html">
                                         <img src="icon/css.png" alt="css">
                                         <img src="icon/javascript.png" alt="자바스크립트">
+                                        <img src="icon/jQuery.png" alt="제이쿼리">
                                         <img src="icon/photoshop.png" alt="포토샵">
                                         <img src="icon/illustrator.png" alt="일러스트레이터">
                                         <img src="icon/github.png" alt="깃허브">
@@ -583,14 +557,58 @@
                 </div><!-- marquee -->
             </section><!-- #section4 -->
 
-            <section class="section5" id="section5">
+            <section class="section" id="section5">
                 <div class="inner">
-
+                    <h5 class="gs_reveal">Design</h5>
+                    <div class="design_wrap gs_reveal">
+                        <div class="list">
+                            <!-- 265*265 -->
+                            <a href="img/design_pension.png" data-fancybox="gallery">
+                                <img src="img/design_pension.png" alt="Sample image #1" />
+                            </a>
+                            <a href="img/design_Torriden_PD.jpg" data-fancybox="gallery">
+                                <img src="img/design_Torriden_PD.jpg" alt="Sample image #2" />
+                            </a>
+                            <a href="img/design_membership.jpg" data-fancybox="gallery">
+                                <img src="img/design_membership.jpg" alt="Sample image #3" />
+                            </a>
+                            <a href="img/design_design_acaibowl_Menu.jpg" data-fancybox="gallery">
+                                <img src="img/design_design_acaibowl_Menu.jpg" alt="Sample image #4" />
+                            </a>
+                            <a href="img/design_cardinfo.jpg" data-fancybox="gallery">
+                                <img src="img/design_cardinfo.jpg" alt="Sample image #5" />
+                            </a>
+                        </div><!-- list -->
+                        <div class="list long">
+                            <!-- 265*370 -->
+                                <a href="img/design_design_camping.jpg" data-fancybox="gallery">
+                                    <img src="img/design_design_camping.jpg" alt="Sample image #6" />
+                                </a>
+                                <a href="img/design_design_29cm.gif" data-fancybox="gallery">
+                                    <img src="img/design_design_29cm.gif" alt="Sample image #7" />
+                                </a>
+                                <a href="img/design_DrG_PDP.jpg" data-fancybox="gallery">
+                                    <img src="img/design_DrG_PDP.jpg" alt="Sample image #8" />
+                                </a>
+                                <a href="img/design_HD.jpg" data-fancybox="gallery">
+                                    <img src="img/design_HD.jpg" alt="Sample image #9" />
+                                </a>
+                                <a href="img/design_PDP.jpg" data-fancybox="gallery">
+                                    <img src="img/design_PDP.jpg" alt="Sample image #10" />
+                                </a>
+                                <a href="img/design_coffee.jpg" data-fancybox="gallery">
+                                    <img src="img/design_coffee.jpg" alt="Sample image #11" />
+                                </a>
+                                <a href="img/design_WarmGreyTail_PDP.png" data-fancybox="gallery">
+                                    <img src="img/design_WarmGreyTail_PDP.png" alt="Sample image #12" />
+                                </a>
+                        </div><!-- list.long -->
+                    </div><!-- design_wrap -->
                 </div><!-- inner -->
             </section><!-- #section5 -->
         </main><!-- main -->
 
-        <footer class="footer">
+        <footer class="footer" id="footer">
             <div class="inner">
                 <div class="text_wrap">
                     <h1 class="title">
@@ -607,6 +625,8 @@
                                 <li><b>Phone</b>010-9110-0418</li>
                                 <li><b>e-mail</b>ab750st@naver.com</li>
                                 <li><b>kakaoID</b>kyoon4180</li>
+                                <li><b>Github</b><a href="https://github.com/yoon4180?tab=repositories">< Click Here! ></Click></a>
+                                </li>
                             </ul>
                         </div><!-- contact -->
                     </div><!-- contact_wrap -->
@@ -619,11 +639,13 @@
                     <img src="img/deco2.png" alt="나비2">
                 </div><!-- deco2 -->
             </div><!-- inner -->
-        </footer>
+        </footer><!-- #footer -->
 
     </div><!-- #wrap -->
 
-
+    <div class="custom-cursor">
+        <span>Hover</span>
+    </div>
 </body>
 
 </html>

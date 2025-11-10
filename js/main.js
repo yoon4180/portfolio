@@ -53,110 +53,63 @@ window.onload = () => {
     new NavigationEffect(document.querySelector("nav"));
 
 
-    // 📍📍📍Portfolio 제목 타이핑📍📍📍
-    /* const pSpan = document.querySelector(".p-style");
-    const oSpan = document.querySelector(".o-style");
 
-    const text = "Portfolio";
-    const first = text[0];          // P
-    const rest = text.slice(1);     // ortfolio
+    // 📍📍 공용 타이핑 함수 📍📍
+    function typeLoop(pTarget, oTarget, text, stay = 1800, typeSpeed = 200, delSpeed = 120) {
+        const first = text[0];
+        const rest = text.slice(1);
 
-    let idx = 0;
-    let isDeleting = false;
+        let idx = 0;
+        let isDeleting = false;
 
-    function loop() {
+        function loop() {
+            if (!isDeleting) {
+                if (idx === 0) {
+                    pTarget.textContent = first;
+                    oTarget.textContent = "";
+                } else {
+                    pTarget.textContent = first;
+                    oTarget.textContent = rest.slice(0, idx);
+                }
+                idx++;
 
-        if (!isDeleting) {
-            // ✅ 타이핑
-            if (idx === 0) {
-                pSpan.textContent = first;
-                oSpan.textContent = "";
+                if (idx > rest.length) {
+                    isDeleting = true;
+                    setTimeout(loop, stay);
+                    return;
+                }
+
             } else {
-                pSpan.textContent = first;
-                oSpan.textContent = rest.slice(0, idx);
+                if (idx <= 0) {
+                    pTarget.textContent = "";
+                    oTarget.textContent = "";
+                    isDeleting = false;
+                    idx = 0;
+                } else {
+                    oTarget.textContent = rest.slice(0, idx);
+                    idx--;
+                }
             }
 
-            idx++;
-
-            if (idx > rest.length) {
-                isDeleting = true;
-                setTimeout(loop, 1800); // 작성 후 멈추는 시간
-                return;
-            }
-
-        } else {
-            // ✅ 삭제
-            if (idx <= 0) {
-                pSpan.textContent = "";
-                oSpan.textContent = "";
-                isDeleting = false;
-                idx = 0;
-            } else {
-                oSpan.textContent = rest.slice(0, idx);
-                idx--;
-            }
-        }
-        setTimeout(loop, isDeleting ? 120 : 200); // 삭제 시간 : 타이핑 시간
-    }
-    loop(); */
-// ✅ Portfolio
-// 📍📍 공용 타이핑 함수 📍📍
-function typeLoop(pTarget, oTarget, text, stay = 1800, typeSpeed = 200, delSpeed = 120) {
-    const first = text[0];       
-    const rest = text.slice(1);  
-
-    let idx = 0;
-    let isDeleting = false;
-
-    function loop() {
-        if (!isDeleting) {
-            if (idx === 0) {
-                pTarget.textContent = first;
-                oTarget.textContent = "";
-            } else {
-                pTarget.textContent = first;
-                oTarget.textContent = rest.slice(0, idx);
-            }
-            idx++;
-
-            if (idx > rest.length) {
-                isDeleting = true;
-                setTimeout(loop, stay);
-                return;
-            }
-
-        } else {
-            if (idx <= 0) {
-                pTarget.textContent = "";
-                oTarget.textContent = "";
-                isDeleting = false;
-                idx = 0;
-            } else {
-                oTarget.textContent = rest.slice(0, idx);
-                idx--;
-            }
+            setTimeout(loop, isDeleting ? delSpeed : typeSpeed);
         }
 
-        setTimeout(loop, isDeleting ? delSpeed : typeSpeed);
+        loop();
     }
 
-    loop();
-}
+    // ✅ Portfolio
+    const p1 = document.querySelector(".p-style");
+    const o1 = document.querySelector(".o-style");
+    if (p1 && o1) {
+        typeLoop(p1, o1, "Portfolio");
+    }
 
-
-// ✅ Portfolio
-const p1 = document.querySelector(".p-style");
-const o1 = document.querySelector(".o-style");
-if (p1 && o1) {
-    typeLoop(p1, o1, "Portfolio");
-}
-
-// ✅ Contact
-const p2 = document.querySelector(".p-style-footer");
-const o2 = document.querySelector(".o-style-footer");
-if (p2 && o2) {
-    typeLoop(p2, o2, "Contact");
-}
+    // ✅ Contact
+    const p2 = document.querySelector(".p-style-footer");
+    const o2 = document.querySelector(".o-style-footer");
+    if (p2 && o2) {
+        typeLoop(p2, o2, "Contact");
+    }
 
 
 
@@ -200,4 +153,63 @@ if (p2 && o2) {
         });
     });
 
-};//script end
+
+
+    // 📍📍📍내비 이동📍📍📍
+    const navLinks = document.querySelectorAll("nav a");
+
+    navLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            const targetId = link.getAttribute("href").replace("#", "");
+            const targetElem = document.getElementById(targetId);
+
+            if (targetElem) {
+                targetElem.scrollIntoView({ behavior: "smooth" });
+            }
+        });
+    });
+
+
+    // 📍📍📍커서 변경📍📍📍
+    const cursor = document.querySelector('.custom-cursor');
+    let mouseX = 0, mouseY = 0;
+    let cursorX = 0, cursorY = 0;
+    const speed = 0.15;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animate() {
+        cursorX += (mouseX - cursorX) * speed;
+        cursorY += (mouseY - cursorY) * speed;
+
+        cursor.style.left = cursorX + 'px';
+        cursor.style.top = cursorY + 'px';
+
+        requestAnimationFrame(animate);
+    }
+    animate();
+
+    // 섹션2, 섹션4에서만 커서 활성화 및 기존 커서 숨기기
+    document.querySelectorAll('#section2, #section4').forEach(section => {
+        section.addEventListener('mouseenter', () => {
+            cursor.classList.add('active');
+            section.style.cursor = 'none'; // 기존 커서 숨기기
+            section.querySelectorAll('*').forEach(el => el.style.cursor = 'none');
+        });
+        section.addEventListener('mouseleave', () => {
+            cursor.classList.remove('active');
+            section.style.cursor = 'auto'; // 기존 커서 다시 보이게
+            section.querySelectorAll('*').forEach(el => el.style.cursor = 'auto');
+        });
+    });
+
+    /* Fancybox.bind("[data-fancybox]", {
+        // Your custom options
+      }); */
+
+}
