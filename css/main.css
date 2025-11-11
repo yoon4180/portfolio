@@ -224,7 +224,7 @@
     border-radius: 10px;
 }
 
-#section1 .card .inner .my .my-01 .resume_btn {
+#section1 .card .inner .my .my-01 .resume_btn a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -238,7 +238,7 @@
     transition: all 0.3s ease;
 }
 
-#section1 .card .inner .my .my-01 .resume_btn:hover {
+#section1 .card .inner .my .my-01 .resume_btn a:hover {
     background-color: rgb(from var(--color-subG) r g b / 0.2);
 }
 
