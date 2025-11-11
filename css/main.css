@@ -315,6 +315,11 @@
     height: 3.6rem;
     object-fit: cover;
     display: block;
+    transition: all 0.2s ease;
+}
+
+#section1 .card .inner .info .item2 .icon_wrap img:hover {
+    transform: scale(1.2);
 }
 
 #section1 .card .inner .info h2 {
