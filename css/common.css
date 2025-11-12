@@ -35,6 +35,36 @@
     --color-bg: #F6F5F3;
 }
 
+* {
+    cursor: none;
+}
+
+.cursor {
+    width: 20px;
+    height: 20px;
+    background: url('../icon/cursor_pencil.png') no-repeat center center / contain;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    text-align: center;
+    z-index: 9999;
+}
+
+.cursor.hover {
+    background: url('../icon/cursor_magnifyingGlass.png') no-repeat center center / contain;
+}
+
+.cursor.hover::after {
+    content: 'hover!';
+    font-size: 13px;
+    position: absolute;
+    top: 20px;
+    left: -5px;
+}
+
 html {
     font-size: 62.5%;  /* 1rem = 10px */
 }
@@ -185,7 +215,7 @@ nav path {
 
 
 /* 커서 */
-.custom-cursor {
+/* .custom-cursor {
     width: 40px;
     height: 40px;
     position: fixed;
@@ -208,4 +238,4 @@ nav path {
 
 .custom-cursor.active {
     opacity: 1;
-}
+} */

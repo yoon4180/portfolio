@@ -1,4 +1,28 @@
 window.onload = () => {
+    // 📍📍📍커서 변경📍📍📍
+    $(window).on('mousemove', function (e) {
+        let mouseX = e.pageX;
+        let mouseY = e.pageY;
+
+        //console.log(mouseX)
+        //console.log(mouseY)
+        $('.cursor').css({
+            'left': mouseX,
+            'top': mouseY
+        });
+    });
+
+    //섹션2,4만 hover로 바뀌게
+    $('#section2, #section4').on('mouseenter', function () {
+        $('.cursor').addClass('hover')
+    });
+
+    $('#section2, #section4').on('mouseleave', function () {
+        $('.cursor').removeClass('hover')
+    });
+
+
+
     // 📍📍📍내비게이션📍📍📍
     class NavigationEffect {
         constructor(navigation) {
@@ -172,46 +196,8 @@ window.onload = () => {
     });
 
 
-    // 📍📍📍커서 변경📍📍📍
-    const cursor = document.querySelector('.custom-cursor');
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-    const speed = 0.15;
-
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-
-    function animate() {
-        cursorX += (mouseX - cursorX) * speed;
-        cursorY += (mouseY - cursorY) * speed;
-
-        cursor.style.left = cursorX + 'px';
-        cursor.style.top = cursorY + 'px';
-
-        requestAnimationFrame(animate);
-    }
-    animate();
-
-    // 섹션2, 섹션4에서만 커서 활성화 및 기존 커서 숨기기
-    document.querySelectorAll('#section2, #section4').forEach(section => {
-        section.addEventListener('mouseenter', () => {
-            cursor.classList.add('active');
-            section.style.cursor = 'none'; // 기존 커서 숨기기
-            section.querySelectorAll('*').forEach(el => el.style.cursor = 'none');
-        });
-        section.addEventListener('mouseleave', () => {
-            cursor.classList.remove('active');
-            section.style.cursor = 'auto'; // 기존 커서 다시 보이게
-            section.querySelectorAll('*').forEach(el => el.style.cursor = 'auto');
-        });
-    });
-
-
-
     // 📍📍📍팬시박스📍📍📍
     Fancybox.bind("[data-fancybox]", {
         // Your custom options
-      });
+    });
 }
