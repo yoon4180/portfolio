@@ -128,7 +128,7 @@
 /* ################ 섹션1 ################ */
 #section1 {
     height: 100vh;
-    background: url('../img/sec-01_bg.png') center no-repeat;
+    background: url('../img/sec-01_bg.webp') center no-repeat;
     background-size: cover;
     position: relative;
     display: flex;
