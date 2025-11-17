@@ -116,11 +116,15 @@
 .insideLetterScroll {
     font-family: 'writingSnippetFont';
     text-align: justify;
-    font-size: 10px;
+    font-size: 14px;
     margin: 31px 38px;
     line-height: 21px;
     height: 488px;
     overflow: auto;
+}
+
+.insideLetterScroll::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
 }
 
 
