@@ -35,9 +35,11 @@
     --color-bg: #F6F5F3;
 }
 
+/* 기존 전체 커서 숨기기 대신 */
 * {
-    cursor: none;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="5" height="5"><circle cx="2.5" cy="2.5" r="2.5" fill="pink" fill-opacity="0.2"/></svg>') 2 2, auto;
 }
+
 
 .cursor {
     width: 20px;
@@ -66,7 +68,8 @@
 }
 
 html {
-    font-size: 62.5%;  /* 1rem = 10px */
+    font-size: 62.5%;
+    /* 1rem = 10px */
 }
 
 body {
@@ -104,7 +107,7 @@ nav path {
 
 @media (max-width: 1100px) {
     nav {
-        flex-direction: column;
+        display: none;
     }
 }
 
@@ -147,8 +150,8 @@ nav path {
     gap: 2rem;
 }
 
-.footer .text_wrap .contact_wrap>p {
-    font-family: var(--font-life);
+.footer .text_wrap .contact_wrap .pdf_dwn a {
+    font-family: var(--font-kr);
     font-size: 20px;
     font-weight: 900;
     color: var(--color-subR);
@@ -156,10 +159,31 @@ nav path {
     padding: 10px 20px;
     border: 1px solid var(--color-subR);
     border-radius: 50px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
     transition: all 0.3s ease;
 }
 
-.footer .text_wrap .contact_wrap>p:hover {
+.footer .text_wrap .contact_wrap .pdf_dwn a p {
+    margin-bottom: -7px;
+}
+
+.pdf_dwn a::after {
+    content: '';
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url('../icon/icon_download_R.png') no-repeat center/contain;
+    transition: all 0.3s ease;
+}
+
+.pdf_dwn a:hover::after {
+    background: url('../icon/icon_download_W.png') no-repeat center/contain;
+}
+
+.footer .text_wrap .contact_wrap .pdf_dwn a:hover {
     background-color: var(--color-subR);
     color: var(--color-bg);
 }
@@ -183,13 +207,25 @@ nav path {
 .footer .text_wrap .contact_wrap .contact ul li {
     font-family: var(--font-life);
     font-size: 20px;
-    font-weight: 300; 
+    font-weight: 300;
     display: flex;
+    align-items: center;
 }
 
 .footer .text_wrap .contact_wrap .contact ul li b {
     width: 9rem;
     font-weight: 900;
+}
+
+.footer .text_wrap .contact_wrap .contact ul li:last-child a {
+    border: 1px dashed;
+    border-radius: 50px;
+    padding: 5px 8px;
+    transition: all 0.3s ease;
+}
+
+.footer .text_wrap .contact_wrap .contact ul li:last-child a:hover {
+    background-color: #d0d7e9;
 }
 
 .footer .deco1 {
@@ -212,30 +248,3 @@ nav path {
     width: 100%;
     display: block;
 }
-
-
-/* 커서 */
-/* .custom-cursor {
-    width: 40px;
-    height: 40px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -505);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    border-radius: 50%;
-    background-color: rgb(from var(--color-main) r g b / 0.5);
-    color: var(--color-bg);
-    font-family: var(--font-cal);
-    font-size: 12px;
-    opacity: 0;
-    z-index: 9999;
-    transition: all 0.2s;
-}
-
-.custom-cursor.active {
-    opacity: 1;
-} */
