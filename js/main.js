@@ -1,28 +1,4 @@
 window.onload = () => {
-    // 📍📍📍커서 변경📍📍📍
-    $(window).on('mousemove', function (e) {
-        let mouseX = e.pageX;
-        let mouseY = e.pageY;
-
-        //console.log(mouseX)
-        //console.log(mouseY)
-        $('.cursor').css({
-            'left': mouseX,
-            'top': mouseY
-        });
-    });
-
-    //섹션2,4만 hover로 바뀌게
-    $('#section2, #section4').on('mouseenter', function () {
-        $('.cursor').addClass('hover')
-    });
-
-    $('#section2, #section4').on('mouseleave', function () {
-        $('.cursor').removeClass('hover')
-    });
-
-
-
     // 📍📍📍내비게이션📍📍📍
     class NavigationEffect {
         constructor(navigation) {

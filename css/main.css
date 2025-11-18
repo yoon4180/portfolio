@@ -124,7 +124,8 @@
 }
 
 .insideLetterScroll::-webkit-scrollbar {
-    display: none; /* Chrome, Safari */
+    display: none;
+    /* Chrome, Safari */
 }
 
 
@@ -469,56 +470,41 @@
 }
 
 /* 목업 이미지 */
-#section2 .item .image_wrap,
-#section4 .item .image_wrap {
+.image_wrap {
     position: relative;
 }
 
-#section2 .item .image_wrap .mockup,
-#section4 .item .image_wrap .mockup {
-    background: url('../img/cine21_pc-mockup.webp') center / 100% 100% no-repeat;
+.image_wrap .mockup {
+    background: url('../img/imac_mockup.webp') center / 100% 100% no-repeat;
     width: 650px;
-    height: 521px;
+    height: 467px;
     position: relative;
     top: -39px;
-    overflow: hidden;
 }
 
-#section2 .item.daonjae .image_wrap .mockup {
-    background: url('../img/daonjae_pc-mockup.webp') center / 100% 100% no-repeat;
-}
-
-#section2 .item.sealife .image_wrap .mockup {
-    background: url('../img/sealife_pc-mockup.webp') center / 100% 100% no-repeat;
-}
-
-/* 섹션4 모작 목업 */
-#section4 .item.socar .image_wrap .mockup {
-    background: url('../img/socar_pc-mockup.webp') center / 100% 100% no-repeat;
-}
-
-#section4 .item.moneytree .image_wrap .mockup {
-    background: url('../img/moneytree_mockup.webp') center / 100% 100% no-repeat;
-}
-
-#section2 .item .image_wrap .mockup .mockup_img,
-#section4 .item .image_wrap .mockup .mockup_img {
-    display: none;
-    width: 90%;
+.image_wrap .mockup .mockup_img {
     position: absolute;
-    top: 31px;
-    left: 33px;
+    top: 25px;
+    left: 26px;
+    width: 92%;
+    height: 64%;
     overflow: hidden;
-    z-index: 10;
 }
 
-#section2 .item .image_wrap .mockup:hover .mockup_img,
-#section4 .item .image_wrap .mockup:hover .mockup_img {
-    display: block;
+.image_wrap .mockup .mockup_img img {
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    transform: translateY(0);
+    transition: transform 8s ease-in-out;
 }
 
-#section2 .item .image_wrap .mockup2,
-#section4 .item .image_wrap .mockup2 {
+.image_wrap .mockup .mockup_img:hover img {
+    transform: translateY(-85%);
+    /* 호버 시 이미지가 위로 이동 */
+}
+
+.image_wrap .mockup2 {
     width: 400px;
     position: absolute;
     bottom: -40px;
@@ -526,15 +512,69 @@
     z-index: 100;
 }
 
-#section2 .item.daonjae .image_wrap .mockup2 {
+.item.daonjae .image_wrap .mockup2 {
     width: 200px;
     right: -120px;
 }
 
-#section2 .item .image_wrap img,
-#section4 .item .image_wrap img {
+.image_wrap img {
     width: 100%;
     object-fit: cover;
+}
+
+.image_wrap .mockup .screen-text {
+    position: absolute;
+    top: -22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 14px;
+    font-family: var(--font-kr);
+    font-weight: 600;
+    color: rgb(from var(--color-main) r g b / 0.7);
+}
+
+/* 모바일 목업 이미지 */
+.image_wrap .mockup.mobile {
+    background: url('../img/mobile_mockup.webp') center / 100% 100% no-repeat;
+    width: 231px;
+    height: 467px;
+    position: relative;
+}
+
+.image_wrap .mockup.mobile:nth-child(2) {
+    transform: translateY(70px);
+}
+
+.image_wrap .mockup.mobile .mockup_img {
+    position: absolute;
+    top: 7px;
+    left: 10px;
+    width: 91.5%;
+    height: 97%;
+    border-radius: 28px;
+    overflow: hidden;
+    transform: translateY();
+}
+
+.image_wrap .mockup.mobile .mockup_img::after {
+    content: '';
+    width: 50px;
+    height: 16px;
+    border-radius: 50px;
+    background-color: #000;
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 111;
+}
+
+.image_wrap .mockup.mobile .screen-text {
+    position: absolute;
+    top: auto;
+    bottom: -25px;
+    left: 50%;
+    white-space: nowrap;
 }
 
 /* 컨텐츠 */
@@ -725,9 +765,10 @@
     flex-direction: row-reverse;
 }
 
-#section3 .inner .mobile .item .image_wrap {}
-
-#section3 .inner .mobile .item .image_wrap img {}
+#section3 .inner .mobile .item .image_wrap {
+    display: flex;
+    gap: 10px;
+}
 
 #section3 .inner .mobile .item .content {
     background-color: var(--color-bg);
