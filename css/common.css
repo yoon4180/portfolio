@@ -112,7 +112,7 @@ nav path {
 .footer {
     width: 100%;
     height: 677px;
-    background: url('../img/footer_bg.png') center center no-repeat;
+    background: url('../img/footer_bg.webp') center center no-repeat;
     background-size: cover;
     /* position: relative; */
 }

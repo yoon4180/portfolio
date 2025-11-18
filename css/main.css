@@ -186,7 +186,7 @@
     content: '';
     width: 100%;
     height: 120px;
-    background: url('../img/lace.png') repeat-x center;
+    background: url('../img/lace.webp') repeat-x center;
     position: absolute;
     top: 0;
     left: 0;
@@ -476,7 +476,7 @@
 
 #section2 .item .image_wrap .mockup,
 #section4 .item .image_wrap .mockup {
-    background: url('../img/cine21_pc-mockup.png') center / 100% 100% no-repeat;
+    background: url('../img/cine21_pc-mockup.webp') center / 100% 100% no-repeat;
     width: 650px;
     height: 521px;
     position: relative;
@@ -485,20 +485,20 @@
 }
 
 #section2 .item.daonjae .image_wrap .mockup {
-    background: url('../img/daonjae_pc-mockup.png') center / 100% 100% no-repeat;
+    background: url('../img/daonjae_pc-mockup.webp') center / 100% 100% no-repeat;
 }
 
 #section2 .item.sealife .image_wrap .mockup {
-    background: url('../img/sealife_pc-mockup.png') center / 100% 100% no-repeat;
+    background: url('../img/sealife_pc-mockup.webp') center / 100% 100% no-repeat;
 }
 
 /* 섹션4 모작 목업 */
 #section4 .item.socar .image_wrap .mockup {
-    background: url('../img/socar_pc-mockup.png') center / 100% 100% no-repeat;
+    background: url('../img/socar_pc-mockup.webp') center / 100% 100% no-repeat;
 }
 
 #section4 .item.moneytree .image_wrap .mockup {
-    background: url('../img/moneytree_mockup.png') center / 100% 100% no-repeat;
+    background: url('../img/moneytree_mockup.webp') center / 100% 100% no-repeat;
 }
 
 #section2 .item .image_wrap .mockup .mockup_img,
@@ -660,7 +660,7 @@
     content: '';
     width: 100%;
     height: 89px;
-    background: url('../img/lace2.png') repeat-x center;
+    background: url('../img/lace2.webp') repeat-x center;
     position: absolute;
     top: 0;
     left: 0;
@@ -670,7 +670,7 @@
     content: '';
     width: 100%;
     height: 89px;
-    background: url('../img/lace2.png') repeat-x center;
+    background: url('../img/lace2.webp') repeat-x center;
     position: absolute;
     bottom: 0;
     left: 0;
