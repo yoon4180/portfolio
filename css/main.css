@@ -817,6 +817,11 @@
     display: flex;
     gap: 3rem;
     max-height: 265px;
+    overflow: hidden;
+}
+
+#section5 .inner .design_wrap .list a:nth-child(n+6) {
+    display: none;
 }
 
 #section5 .inner .design_wrap .list.long {
@@ -831,6 +836,7 @@
     height: 265px;
     overflow: hidden;
     border-radius: 10px;
+    position: relative;
 }
 
 #section5 .inner .design_wrap .list.long a {
@@ -843,4 +849,23 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.design_wrap .list a .photoshop_icon::after {
+    content: '';
+    background: url('../icon/photoshop.png') center / cover no-repeat;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 35px;
+    height: 35px;
+}
+.design_wrap .list a .illust_icon::after {
+    content: '';
+    background: url('../icon/illustrator.png') center / cover no-repeat;
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 35px;
+    height: 35px;
 }
