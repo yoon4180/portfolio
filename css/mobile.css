@@ -1,0 +1,53 @@
+@media screen and (max-width: 1650px) {
+    .section .inner {
+        /* width: calc(100% - 60px); */
+    }
+
+    .section .inner .list .category {
+        margin-top: 0;
+        bottom: 0px;
+    }
+
+    .section .inner .list .item {
+        height: auto;
+        padding: 80px 0;
+    }
+
+    .image_wrap .mockup {
+        width: 550px;
+        height: 395px;
+        top: -39px;
+    }
+
+    .image_wrap .mockup .mockup_img {
+        top: 20px;
+        left: 22px;
+        width: 92%;
+        height: 64%;
+    }
+
+    .image_wrap .mockup2 {
+        width: 330px;
+        bottom: -70px;
+        right: -210px;
+    }
+
+    .item.daonjae .image_wrap .mockup2 {
+        width: 150px;
+        right: -80px;
+    }
+
+    /* 컨텐츠 */
+    .section .item .content {
+        padding: 3rem;
+        max-width: 540px;
+        border-radius: 20px;
+        border: 1px solid var(--color-subR);
+    }
+
+    .section .item .content .content_inner {
+        display: flex;
+        flex-direction: column;
+        gap: 4rem;
+    }
+}

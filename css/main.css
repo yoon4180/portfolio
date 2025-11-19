@@ -175,11 +175,14 @@
 }
 
 .ascii5 {
+    display: block;
+    opacity: 40%;
     width: 20rem;
-    transform: rotate(-10deg);
-    top: 12rem;
-    left: 45rem;
+    transform: rotate(-20deg);
     z-index: 11;
+    position: absolute;
+    top: -126px;
+    left: -98px;
 }
 
 /* 레이스 */
@@ -200,6 +203,7 @@
     background-color: var(--color-bg);
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.25);
     margin: 0 auto;
+    z-index: 10;
 }
 
 #section1 .card .inner {
@@ -219,6 +223,7 @@
     flex-direction: column;
     gap: 12px;
     align-items: center;
+    position: relative;
 }
 
 #section1 .card .inner .my .my-01 .idpic {
@@ -429,34 +434,29 @@
     bottom: -35px;
 }
 
-#section2 .inner .list .category,
-#section4 .inner .list .category {
+.section .inner .list .category {
     margin-top: 0;
     bottom: -60px;
 }
 
-#section2 .inner .category p:first-child,
-#section4 .inner .category p:first-child {
+.section .inner .category p:first-child {
     font-family: var(--font-great);
     font-size: 10rem;
 }
 
-#section2 .inner .category p:last-child,
-#section4 .inner .category p:last-child {
+.section .inner .category p:last-child {
     font-family: var(--font-cor);
     font-size: 6rem;
     font-weight: 600;
 }
 
-#section2 .inner .list,
-#section4 .inner .list {
+.section .inner .list {
     display: flex;
     flex-direction: column;
     gap: 3rem;
 }
 
-#section2 .inner .list .item,
-#section4 .inner .list .item {
+.section .inner .list .item {
     height: 80vh;
     display: flex;
     justify-content: space-between;
@@ -818,6 +818,7 @@
     gap: 3rem;
     max-height: 265px;
     overflow: hidden;
+    flex-direction: row;
 }
 
 #section5 .inner .design_wrap .list a:nth-child(n+6) {
@@ -860,6 +861,7 @@
     width: 35px;
     height: 35px;
 }
+
 .design_wrap .list a .illust_icon::after {
     content: '';
     background: url('../icon/illustrator.png') center / cover no-repeat;
